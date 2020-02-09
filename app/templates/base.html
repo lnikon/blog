@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{title }} - byteland</title>
+    {% if title %}
+    <title>{{title }} - ZSim</title>
+    {% else %}
+    <title>ZSim</title>
+    {% endif %}
 </head>
+
 <body>
-    <h1>Microblog</h1>
-    <div><a href="/index">Home</a></div>
-    <div><a href="/login">Login</a></div>
+    <div>
+        <h1>Microblog</h1>
+        <a href="/index">Home</a>
+        <a href="/login">Login</a>
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
     <hr>
-    {% block content %}{% endblock %}
+    {% block content %}
+    {% endblock %}
 </body>
+
 </html>

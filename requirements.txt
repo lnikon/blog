@@ -5,3 +5,4 @@ flask-migrate
 pylint
 autopep8
 pylint-flask
+flask-login

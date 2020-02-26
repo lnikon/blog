@@ -13,4 +13,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 bootstrap = Bootstrap(app)
 
-from app import routes, models, errors
+from ap.errors import bp as errors_bp
+app.register_blueprint(errors_bp)
+
+from app import routes, models
